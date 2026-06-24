@@ -41,14 +41,14 @@ function SectionHeader({ num, label }: { num: string; label: string }) {
   return (
     <div className="section-divider mb-12">
       <span className="tech-text text-accent">{num}.</span>
-      <span className="tech-text text-zinc-400">{label}</span>
+      <span className="tech-text text-zinc-500">{label}</span>
     </div>
   );
 }
 
 function FaqItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boolean; onToggle: () => void }) {
   return (
-    <div className="border-b border-white/10">
+    <div className="border-b border-black/10">
       <button onClick={onToggle} className="w-full flex items-center justify-between gap-6 py-6 text-left">
         <span className="font-display uppercase text-lg lg:text-xl">{q}</span>
         <ChevronDown
@@ -64,7 +64,7 @@ function FaqItem({ q, a, isOpen, onToggle }: { q: string; a: string; isOpen: boo
             transition={{ duration: 0.3 }}
             className="overflow-hidden"
           >
-            <p className="pb-6 text-muted-text leading-relaxed max-w-2xl text-zinc-400">{a}</p>
+            <p className="pb-6 leading-relaxed max-w-2xl text-zinc-600">{a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -81,14 +81,14 @@ export default function Home() {
   return (
     <div className="bg-background-dark text-foreground-light min-h-screen font-sans">
       {/* HEADER */}
-      <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 lg:px-10 py-4 bg-background-dark/80 backdrop-blur-md border-b border-white/10">
+      <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 lg:px-10 py-4 bg-background-dark/80 backdrop-blur-md border-b border-black/10">
         <Link href="#top" className="font-display uppercase text-lg tracking-tight">
           NORTH <span className="glow-text">KRAKEN</span>
         </Link>
 
         <nav className="hidden lg:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
-            <a key={link.href} href={link.href} className="text-sm text-zinc-300 hover:text-white transition-colors">
+            <a key={link.href} href={link.href} className="text-sm text-zinc-600 hover:text-zinc-900 transition-colors">
               {link.label}
             </a>
           ))}
@@ -97,7 +97,7 @@ export default function Home() {
         <div className="hidden lg:block">
           <a
             href="#shop"
-            className="inline-flex items-center gap-2 bg-accent text-background-dark text-sm font-semibold px-5 py-2.5 rounded-full hover:brightness-110 transition"
+            className="inline-flex items-center gap-2 bg-accent text-white text-sm font-semibold px-5 py-2.5 rounded-full hover:brightness-110 transition"
           >
             Browse Templates
           </a>
@@ -105,7 +105,7 @@ export default function Home() {
 
         <button
           onClick={() => setMenuOpen(true)}
-          className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full border border-white/15"
+          className="lg:hidden w-10 h-10 flex items-center justify-center rounded-full border border-black/15"
           aria-label="Open menu"
         >
           <Menu className="w-5 h-5" />
@@ -124,7 +124,7 @@ export default function Home() {
             <div className="flex justify-end p-6">
               <button
                 onClick={() => setMenuOpen(false)}
-                className="w-10 h-10 flex items-center justify-center rounded-full border border-white/15"
+                className="w-10 h-10 flex items-center justify-center rounded-full border border-black/15"
                 aria-label="Close menu"
               >
                 <X className="w-5 h-5" />
@@ -154,7 +154,7 @@ export default function Home() {
         {/* top row: eyebrow + category chip, like Puki's ©16-26 / 03. Brand Identity */}
         <div className="relative z-10 flex items-center justify-between text-xs tech-text text-zinc-500">
           <span>© 24–26</span>
-          <span className="bg-surface border border-white/10 rounded-full px-4 py-2 text-zinc-300">
+          <span className="bg-surface border border-black/10 rounded-full px-4 py-2 text-zinc-700">
             01. Templates Shop
           </span>
         </div>
@@ -175,7 +175,7 @@ export default function Home() {
             <h1 className="font-display text-[16vw] sm:text-7xl lg:text-8xl uppercase leading-[0.85] tracking-tight">
               NORTH
             </h1>
-            <p className="max-w-xs text-zinc-400 text-sm leading-relaxed mb-4 hidden md:block">
+            <p className="max-w-xs text-zinc-600 text-sm leading-relaxed mb-4 hidden md:block">
               Production-ready Next.js templates for agencies, founders and
               creatives. Buy, customize, deploy.
             </p>
@@ -186,7 +186,7 @@ export default function Home() {
             </h1>
             <a
               href="#shop"
-              className="inline-flex items-center gap-2 bg-accent text-background-dark font-semibold px-7 py-3.5 rounded-full hover:brightness-110 transition mb-2"
+              className="inline-flex items-center gap-2 bg-accent text-white font-semibold px-7 py-3.5 rounded-full hover:brightness-110 transition mb-2"
             >
               Browse Templates <ArrowRight className="w-4 h-4" />
             </a>
@@ -201,12 +201,12 @@ export default function Home() {
       </section>
 
       {/* TECH MARQUEE */}
-      <div className="border-y border-white/10 bg-surface/40 py-4 overflow-hidden">
+      <div className="border-y border-black/10 bg-surface/60 py-4 overflow-hidden">
         <div className="marquee-track">
           {Array.from({ length: 2 }).map((_, i) => (
             <span key={i} className="flex items-center shrink-0">
               {["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript", "Vercel"].map((tool) => (
-                <span key={tool} className="font-display uppercase text-xl px-8 text-zinc-600">
+                <span key={tool} className="font-display uppercase text-xl px-8 text-zinc-400">
                   {tool}
                 </span>
               ))}
@@ -216,13 +216,13 @@ export default function Home() {
       </div>
 
       {/* SHOP — grid */}
-      <section id="shop" className="relative px-6 lg:px-12 py-16 border-b border-white/10">
+      <section id="shop" className="relative px-6 lg:px-12 py-16 border-b border-black/10">
         <div className="flex flex-col gap-6 mb-12 max-w-2xl">
           <SectionHeader num="02" label="Shop" />
           <h2 className="font-display text-4xl lg:text-5xl uppercase leading-tight">
             Showcase of our templates
           </h2>
-          <p className="text-zinc-400 max-w-sm">
+          <p className="text-zinc-600 max-w-sm">
             Discover templates designed to help you ship faster, with clean
             code and zero bloat.
           </p>
@@ -237,7 +237,7 @@ export default function Home() {
               tabIndex={0}
               onClick={() => router.push(`/templates/${tpl.id}`)}
               onKeyDown={(e) => e.key === "Enter" && router.push(`/templates/${tpl.id}`)}
-              className="relative group block aspect-[4/3] overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br from-accent/10 via-background-dark to-background-dark cursor-pointer hover:border-accent/40 transition-colors"
+              className="relative group block aspect-[4/3] overflow-hidden rounded-2xl border border-black/10 bg-gradient-to-br from-accent/10 via-background-dark to-background-dark cursor-pointer hover:border-accent/40 transition-colors"
             >
               {tpl.images ? (
                 <>
@@ -245,23 +245,23 @@ export default function Home() {
                     src={tpl.images[0]}
                     alt={tpl.title}
                     fill
-                    className="object-cover opacity-50 group-hover:opacity-65 transition-opacity"
+                    className="object-cover opacity-70 group-hover:opacity-85 transition-opacity"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/40 to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/30 to-transparent" />
                 </>
               ) : (
                 <div className="absolute inset-0 flex items-center justify-center px-4">
-                  <span className="font-display uppercase text-3xl lg:text-4xl text-zinc-700 group-hover:text-zinc-600 transition-colors text-center">
+                  <span className="font-display uppercase text-3xl lg:text-4xl text-zinc-300 group-hover:text-zinc-400 transition-colors text-center">
                     {tpl.title}
                   </span>
                 </div>
               )}
 
-              <span className="absolute top-4 left-4 tech-text text-zinc-400">{tpl.title}</span>
-              <span className="absolute top-4 right-4 tech-text text-zinc-400 text-right">({tpl.type})</span>
+              <span className="absolute top-4 left-4 tech-text text-zinc-600">{tpl.title}</span>
+              <span className="absolute top-4 right-4 tech-text text-zinc-600 text-right">({tpl.type})</span>
 
               <span className="absolute inset-0 flex items-center justify-center">
-                <span className="w-14 h-14 rounded-full bg-accent text-background-dark flex items-center justify-center font-display uppercase text-[10px] opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all">
+                <span className="w-14 h-14 rounded-full bg-accent text-white flex items-center justify-center font-display uppercase text-[10px] opacity-0 group-hover:opacity-100 scale-75 group-hover:scale-100 transition-all">
                   View
                 </span>
               </span>
@@ -272,7 +272,7 @@ export default function Home() {
               <a
                 href={tpl.checkoutUrl}
                 onClick={(e) => e.stopPropagation()}
-                className="absolute bottom-4 right-4 inline-flex items-center gap-1.5 text-xs bg-white/10 hover:bg-accent hover:text-background-dark px-3 py-1.5 rounded-full transition-colors"
+                className="absolute bottom-4 right-4 inline-flex items-center gap-1.5 text-xs bg-black/5 hover:bg-accent hover:text-white px-3 py-1.5 rounded-full transition-colors"
               >
                 <ShoppingBag className="w-3 h-3" /> Buy
               </a>
@@ -296,7 +296,7 @@ export default function Home() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section id="testimonials" className="px-6 lg:px-20 py-24 lg:py-32 bg-surface/40">
+      <section id="testimonials" className="px-6 lg:px-20 py-24 lg:py-32 bg-surface/60">
         <SectionHeader num="03" label="Reviews" />
         <h2 className="mb-12 font-display text-4xl lg:text-5xl uppercase">What people are shipping</h2>
 
@@ -337,10 +337,10 @@ export default function Home() {
           <h2 className="font-display text-4xl lg:text-6xl uppercase tracking-tight">
             Questions before you buy?
           </h2>
-          <p className="mt-4 text-zinc-400">We usually reply within a day.</p>
+          <p className="mt-4 text-zinc-600">We usually reply within a day.</p>
           <a
             href="mailto:hi@northkraken.studio"
-            className="mt-8 inline-flex items-center gap-2 bg-accent text-background-dark font-semibold px-7 py-3.5 rounded-full hover:brightness-110 transition"
+            className="mt-8 inline-flex items-center gap-2 bg-accent text-white font-semibold px-7 py-3.5 rounded-full hover:brightness-110 transition"
           >
             hi@northkraken.studio <ArrowRight className="w-4 h-4" />
           </a>
@@ -348,15 +348,15 @@ export default function Home() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-white/10 px-6 lg:px-20 py-10 flex flex-col md:flex-row justify-between items-center gap-6">
+      <footer className="border-t border-black/10 px-6 lg:px-20 py-10 flex flex-col md:flex-row justify-between items-center gap-6">
         <span className="font-display uppercase text-sm opacity-70">NORTH KRAKEN</span>
         <div className="flex flex-wrap items-center gap-6 text-xs text-zinc-500">
           <span>© {new Date().getFullYear()} North Kraken Studio</span>
-          <Link href="/legal/terms" className="hover:text-white transition-colors">Terms</Link>
-          <Link href="/legal/privacy" className="hover:text-white transition-colors">Privacy</Link>
-          <Link href="/legal/refunds" className="hover:text-white transition-colors">Refunds</Link>
-          <a href="#" className="hover:text-white transition-colors">Instagram</a>
-          <a href="#" className="hover:text-white transition-colors">GitHub</a>
+          <Link href="/legal/terms" className="hover:text-zinc-900 transition-colors">Terms</Link>
+          <Link href="/legal/privacy" className="hover:text-zinc-900 transition-colors">Privacy</Link>
+          <Link href="/legal/refunds" className="hover:text-zinc-900 transition-colors">Refunds</Link>
+          <a href="#" className="hover:text-zinc-900 transition-colors">Instagram</a>
+          <a href="#" className="hover:text-zinc-900 transition-colors">GitHub</a>
         </div>
       </footer>
     </div>

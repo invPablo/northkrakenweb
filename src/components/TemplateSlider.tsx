@@ -41,7 +41,7 @@ export default function TemplateSlider() {
           {/* Left: Template Image */}
           <div className="w-full md:w-1/2 flex items-center justify-center">
             {current.images ? (
-              <div className="relative w-full max-w-xl aspect-video rounded-xl overflow-hidden border border-white/10 shadow-2xl shadow-accent/20">
+              <div className="relative w-full max-w-xl aspect-video rounded-xl overflow-hidden border border-black/10 shadow-2xl shadow-accent/10">
                 <Image
                   src={current.images[0]}
                   alt={current.title}
@@ -50,8 +50,8 @@ export default function TemplateSlider() {
                 />
               </div>
             ) : (
-              <div className="w-full max-w-xl aspect-video rounded-xl bg-surface border border-white/10 flex items-center justify-center">
-                <span className="font-display text-3xl text-zinc-700">{current.title}</span>
+              <div className="w-full max-w-xl aspect-video rounded-xl bg-surface border border-black/10 flex items-center justify-center">
+                <span className="font-display text-3xl text-zinc-400">{current.title}</span>
               </div>
             )}
           </div>
@@ -65,7 +65,7 @@ export default function TemplateSlider() {
               </h2>
             </div>
 
-            <p className="text-zinc-400 text-xl leading-relaxed max-w-xl">
+            <p className="text-zinc-600 text-xl leading-relaxed max-w-xl">
               {current.description}
             </p>
 
@@ -74,7 +74,7 @@ export default function TemplateSlider() {
               <p className="tech-text text-zinc-500 text-sm uppercase mb-4">Key Features</p>
               <ul className="space-y-3">
                 {current.features.slice(0, 3).map((f) => (
-                  <li key={f} className="flex items-center gap-3 text-base text-zinc-300">
+                  <li key={f} className="flex items-center gap-3 text-base text-zinc-700">
                     <span className="text-accent">→</span>
                     {f}
                   </li>
@@ -87,13 +87,13 @@ export default function TemplateSlider() {
               <span className="font-display text-4xl glow-text">{current.price}</span>
               <a
                 href={current.checkoutUrl}
-                className="inline-flex items-center gap-2 bg-accent text-background-dark font-semibold px-7 py-3.5 rounded-full hover:brightness-110 transition text-base"
+                className="inline-flex items-center gap-2 bg-accent text-white font-semibold px-7 py-3.5 rounded-full hover:brightness-110 transition text-base"
               >
                 <ShoppingBag className="w-5 h-5" /> Buy
               </a>
               <Link
                 href={`/templates/${current.id}`}
-                className="inline-flex items-center gap-2 text-base text-zinc-400 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 text-base text-zinc-600 hover:text-zinc-900 transition-colors"
               >
                 Full details <ArrowRight className="w-5 h-5" />
               </Link>
@@ -105,14 +105,14 @@ export default function TemplateSlider() {
       {/* Navigation Buttons */}
       <button
         onClick={handlePrev}
-        className="absolute -left-4 md:-left-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/20 hover:border-accent hover:bg-accent/10 text-white flex items-center justify-center transition-all"
+        className="absolute -left-4 md:-left-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-black/15 hover:border-accent hover:bg-accent/10 text-zinc-900 flex items-center justify-center transition-all"
         aria-label="Previous template"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={handleNext}
-        className="absolute -right-4 md:-right-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/20 hover:border-accent hover:bg-accent/10 text-white flex items-center justify-center transition-all"
+        className="absolute -right-4 md:-right-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-black/15 hover:border-accent hover:bg-accent/10 text-zinc-900 flex items-center justify-center transition-all"
         aria-label="Next template"
       >
         <ChevronRight className="w-6 h-6" />
