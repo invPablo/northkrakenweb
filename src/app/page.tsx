@@ -5,10 +5,11 @@ import Link from "next/link";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, ArrowRight, ArrowUpRight, ChevronDown, ShoppingBag, Code2, Rocket, LifeBuoy } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown, ShoppingBag, Code2, Rocket, LifeBuoy } from "lucide-react";
 import { TEMPLATES } from "@/lib/templates";
 import ShowcaseFrame from "@/components/ShowcaseFrame";
 import TestimonialWall from "@/components/TestimonialWall";
+import ContactForm from "@/components/ContactForm";
 
 const NAV_LINKS = [
   { href: "#shop", label: "Templates" },
@@ -344,11 +345,12 @@ export default function Home() {
             Questions before you buy?
           </h2>
           <p className="text-zinc-600">We usually reply within a day.</p>
+          <ContactForm />
           <a
             href="mailto:hi@northkraken.studio"
-            className="inline-flex items-center gap-2 bg-accent text-white font-medium px-6 py-3 rounded-lg hover:brightness-110 transition"
+            className="text-sm text-zinc-500 hover:text-zinc-900 transition-colors"
           >
-            hi@northkraken.studio <ArrowUpRight className="w-4 h-4" />
+            or email us directly at hi@northkraken.studio
           </a>
         </motion.div>
       </section>
