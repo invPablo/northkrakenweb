@@ -13,7 +13,7 @@ export default function LegalPage({
   return (
     <div className="bg-background-dark text-foreground-light min-h-screen font-sans">
       <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 lg:px-10 py-4 bg-background-dark/90 backdrop-blur-md border-b border-black/10">
-        <Link href="/" className="font-semibold text-lg tracking-tight text-zinc-900">
+        <Link href="/" className="font-display uppercase text-lg tracking-tight text-zinc-900">
           North <span className="text-accent">Kraken</span>
         </Link>
         <Link href="/" className="inline-flex items-center gap-2 text-sm text-zinc-600 hover:text-zinc-900 transition-colors">
@@ -31,7 +31,7 @@ export default function LegalPage({
       </section>
 
       <footer className="border-t border-black/10 px-6 lg:px-10 py-10 flex flex-col md:flex-row justify-between items-center gap-6">
-        <span className="font-semibold text-sm text-zinc-900">North Kraken</span>
+        <span className="font-display uppercase text-sm text-zinc-900">North Kraken</span>
         <span className="text-xs text-zinc-500">© {new Date().getFullYear()} North Kraken Studio</span>
       </footer>
     </div>

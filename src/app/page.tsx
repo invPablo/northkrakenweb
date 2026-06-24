@@ -89,7 +89,7 @@ export default function Home() {
     <div className="bg-background-dark text-foreground-light min-h-screen font-sans">
       {/* HEADER */}
       <header className="fixed top-0 left-0 w-full z-50 flex items-center justify-between px-6 lg:px-10 py-4 bg-background-dark/90 backdrop-blur-md border-b border-black/10">
-        <Link href="#top" className="font-semibold text-lg tracking-tight text-zinc-900">
+        <Link href="#top" className="font-display uppercase text-lg tracking-tight text-zinc-900">
           North <span className="text-accent">Kraken</span>
         </Link>
 
@@ -349,7 +349,7 @@ export default function Home() {
       <footer className="border-t border-black/10 px-6 lg:px-10 py-14">
         <div className="max-w-6xl mx-auto grid grid-cols-2 sm:grid-cols-4 gap-10">
           <div className="col-span-2 sm:col-span-1">
-            <span className="font-semibold text-zinc-900">North Kraken</span>
+            <span className="font-display uppercase text-zinc-900">North Kraken</span>
             <p className="mt-3 text-sm text-zinc-500 leading-relaxed max-w-xs">
               Production-ready Next.js templates. Since 2024, remote, worldwide.
             </p>
