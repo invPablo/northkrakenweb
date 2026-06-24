@@ -89,6 +89,11 @@ export const TEMPLATES: Template[] = [
       "Centralized site config file",
     ],
     pages: ["Home", "About", "Spaces", "Locations", "Pricing", "Testimonials", "FAQ", "Contact"],
+    images: [
+      "/templates/sour/focus-zone.png",
+      "/templates/sour/podcast-studio.png",
+      "/templates/sour/collaborative-lounge.png",
+    ],
     demoUrl: "https://sour-landing.vercel.app",
   },
 ];
