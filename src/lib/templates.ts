@@ -122,6 +122,23 @@ export const TEMPLATES: Template[] = [
     demoUrl: "/templates/iron-gym/demo",
     docsUrl: "/templates/iron-gym/docs",
   },
+  {
+    id: "sour",
+    title: "SOUR",
+    type: "CINEMATIC WORKSPACE & STUDIO",
+    price: "$69",
+    checkoutUrl: "https://northkraken.lemonsqueezy.com/checkout/buy/sour?embed=1",
+    description:
+      "A premium, dark-themed cinematic site for creative studios, coworking spaces and production labs, with a sticky stacking-cards scroll, fixed ambient background video and interactive mouse-glow effects.",
+    features: [
+      "Sticky stacking-cards scroll layout",
+      "Fixed ambient background video",
+      "Interactive mouse-glow effect",
+      "Centralized site config file",
+    ],
+    pages: ["Home", "About", "Spaces", "Locations", "Pricing", "Testimonials", "FAQ", "Contact"],
+    demoUrl: "https://sour-landing.vercel.app",
+  },
 ];
 
 export function getTemplateById(id: string): Template | undefined {
