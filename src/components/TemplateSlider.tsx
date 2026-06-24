@@ -105,32 +105,18 @@ export default function TemplateSlider() {
       {/* Navigation Buttons */}
       <button
         onClick={handlePrev}
-        className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/20 hover:border-accent hover:bg-accent/10 text-white flex items-center justify-center transition-all"
+        className="absolute -left-4 md:-left-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/20 hover:border-accent hover:bg-accent/10 text-white flex items-center justify-center transition-all"
         aria-label="Previous template"
       >
         <ChevronLeft className="w-6 h-6" />
       </button>
       <button
         onClick={handleNext}
-        className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/20 hover:border-accent hover:bg-accent/10 text-white flex items-center justify-center transition-all"
+        className="absolute -right-4 md:-right-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 rounded-full border border-white/20 hover:border-accent hover:bg-accent/10 text-white flex items-center justify-center transition-all"
         aria-label="Next template"
       >
         <ChevronRight className="w-6 h-6" />
       </button>
-
-      {/* Dots Indicator */}
-      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2 z-20">
-        {TEMPLATES.map((_, idx) => (
-          <button
-            key={idx}
-            onClick={() => setCurrentIdx(idx)}
-            className={`transition-all ${
-              idx === currentIdx ? "bg-accent w-8 h-2 rounded-full" : "bg-white/30 w-2 h-2 rounded-full hover:bg-white/50"
-            }`}
-            aria-label={`Go to template ${idx + 1}`}
-          />
-        ))}
-      </div>
     </div>
   );
 }
