@@ -14,54 +14,6 @@ export type Template = {
 
 export const TEMPLATES: Template[] = [
   {
-    id: "kraken-portfolio",
-    title: "KRAKEN PORTFOLIO",
-    type: "CREATIVE PORTFOLIO",
-    price: "$49",
-    checkoutUrl: "https://northkraken.lemonsqueezy.com/checkout/buy/kraken-portfolio?embed=1",
-    description:
-      "A brutalist portfolio built to make creatives and studios stand out. Big typography, sharp transitions, zero filler.",
-    features: [
-      "Scroll-driven animations",
-      "Project case-study layout",
-      "Fully responsive grid",
-      "CMS-ready content blocks",
-    ],
-    pages: ["Home", "Work", "Project Detail", "About", "Contact"],
-  },
-  {
-    id: "njord-starter",
-    title: "NJORD BOILERPLATE",
-    type: "NEXT.JS STARTER",
-    price: "$79",
-    checkoutUrl: "https://northkraken.lemonsqueezy.com/checkout/buy/njord-starter?embed=1",
-    description:
-      "A production-ready Next.js + Tailwind starter for SaaS and product sites. Skip the boilerplate, ship the product.",
-    features: [
-      "Auth-ready structure",
-      "Pricing & billing sections",
-      "Dark mode out of the box",
-      "SEO and performance tuned",
-    ],
-    pages: ["Home", "Pricing", "Features", "Blog", "Login", "Contact"],
-  },
-  {
-    id: "vespera-ui",
-    title: "VESPERA UI",
-    type: "DESIGN SYSTEM",
-    price: "$39",
-    checkoutUrl: "https://northkraken.lemonsqueezy.com/checkout/buy/vespera-ui?embed=1",
-    description:
-      "A component library and design system for teams who need consistency without sacrificing a strong visual identity.",
-    features: [
-      "40+ reusable components",
-      "Tailwind config & tokens",
-      "Light & dark themes",
-      "Documentation included",
-    ],
-    pages: ["Overview", "Components", "Tokens", "Usage Guide"],
-  },
-  {
     id: "fisterra",
     title: "FISTERRA",
     type: "RESTAURANT & FINE DINING",
