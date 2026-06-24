@@ -13,6 +13,7 @@ import ContactForm from "@/components/ContactForm";
 
 const NAV_LINKS = [
   { href: "#shop", label: "Templates" },
+  { href: "/apps", label: "What we built" },
   { href: "#testimonials", label: "Reviews" },
   { href: "#faq", label: "FAQ" },
   { href: "#contact", label: "Contact" },
