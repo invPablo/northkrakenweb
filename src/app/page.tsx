@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight, ChevronDown, ShoppingBag } from "lucide-react";
 import { TEMPLATES } from "@/lib/templates";
+import TemplateOrbit from "@/components/TemplateOrbit";
 
 const NAV_LINKS = [
   { href: "#shop", label: "Shop" },
@@ -174,23 +175,9 @@ export default function Home() {
           </span>
         </div>
 
-        {/* centered rotating badge */}
+        {/* centered template orbit */}
         <div className="relative z-10 self-center hidden md:block">
-          <svg viewBox="0 0 200 200" className="w-44 h-44 badge-spin">
-            <defs>
-              <path id="badge-circle" d="M 100,100 m -75,0 a 75,75 0 1,1 150,0 a 75,75 0 1,1 -150,0" />
-            </defs>
-            <text fill="currentColor" className="fill-zinc-400 text-[11px] uppercase tracking-[0.2em]">
-              <textPath href="#badge-circle">
-                Next.js • Tailwind • Ready to ship • North Kraken •
-              </textPath>
-            </text>
-          </svg>
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="w-16 h-16 rounded-full bg-accent/10 border border-accent/30 flex items-center justify-center">
-              <ArrowRight className="w-5 h-5 text-accent" />
-            </div>
-          </div>
+          <TemplateOrbit />
         </div>
 
         {/* bottom: split wordmark + floating preview card */}
@@ -227,25 +214,6 @@ export default function Home() {
           </div>
         </motion.div>
 
-        {/* floating preview card — always links to the newest template */}
-        <motion.div
-          initial={{ opacity: 0, rotate: -6, y: 20 }}
-          animate={{ opacity: 1, rotate: -4, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="hidden lg:block absolute bottom-28 right-10 z-20"
-        >
-          <Link
-            href={`/templates/${newestTemplate.id}`}
-            className="flex w-40 flex-col gap-2 card-surface rounded-xl p-3 hover:border-accent/50 transition-colors"
-          >
-            <div className="aspect-[4/3] rounded-lg overflow-hidden relative bg-gradient-to-br from-accent/30 to-background-dark">
-              {newestTemplate.images && (
-                <Image src={newestTemplate.images[0]} alt={newestTemplate.title} fill className="object-cover" />
-              )}
-            </div>
-            <span className="tech-text text-zinc-400">New: {newestTemplate.title}</span>
-          </Link>
-        </motion.div>
       </section>
 
       {/* TECH MARQUEE */}
