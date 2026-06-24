@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Anton, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import LemonSqueezyScript from "@/components/LemonSqueezyScript";
+import CookieBanner from "@/components/CookieBanner";
 
 const anton = Anton({
   variable: "--font-anton",
@@ -41,6 +42,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-background-dark text-foreground-light">
         {children}
         <LemonSqueezyScript />
+        <CookieBanner />
       </body>
     </html>
   );
