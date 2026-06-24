@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Anton, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 import LemonSqueezyScript from "@/components/LemonSqueezyScript";
 import CookieBanner from "@/components/CookieBanner";
 
@@ -43,6 +44,7 @@ export default function RootLayout({
         {children}
         <LemonSqueezyScript />
         <CookieBanner />
+        <Analytics />
       </body>
     </html>
   );
