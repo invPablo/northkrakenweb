@@ -7,7 +7,6 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight, ChevronDown, ShoppingBag } from "lucide-react";
 import { TEMPLATES } from "@/lib/templates";
-import TemplateCarousel from "@/components/TemplateCarousel";
 
 const NAV_LINKS = [
   { href: "#shop", label: "Shop" },
@@ -228,17 +227,24 @@ export default function Home() {
           </div>
         </motion.div>
 
-      </section>
-
-      {/* CAROUSEL SECTION */}
-      <section className="relative px-6 lg:px-20 py-16 lg:py-24 border-b border-white/10">
+        {/* floating preview card — always links to the newest template */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
+          initial={{ opacity: 0, rotate: -6, y: 20 }}
+          animate={{ opacity: 1, rotate: -4, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.3 }}
+          className="hidden lg:block absolute bottom-28 right-10 z-20"
         >
-          <TemplateCarousel />
+          <Link
+            href={`/templates/${newestTemplate.id}`}
+            className="flex w-40 flex-col gap-2 card-surface rounded-xl p-3 hover:border-accent/50 transition-colors"
+          >
+            <div className="aspect-[4/3] rounded-lg overflow-hidden relative bg-gradient-to-br from-accent/30 to-background-dark">
+              {newestTemplate.images && (
+                <Image src={newestTemplate.images[0]} alt={newestTemplate.title} fill className="object-cover" />
+              )}
+            </div>
+            <span className="tech-text text-zinc-400">New: {newestTemplate.title}</span>
+          </Link>
         </motion.div>
       </section>
 
