@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight, ChevronDown, ShoppingBag } from "lucide-react";
 import { TEMPLATES } from "@/lib/templates";
-import TemplateOrbit from "@/components/TemplateOrbit";
+import TemplateSlider from "@/components/TemplateSlider";
 
 const NAV_LINKS = [
   { href: "#shop", label: "Shop" },
@@ -175,9 +175,9 @@ export default function Home() {
           </span>
         </div>
 
-        {/* centered template orbit */}
-        <div className="relative z-10 self-center hidden md:block">
-          <TemplateOrbit />
+        {/* centered template slider */}
+        <div className="relative z-20 flex-1 w-full max-w-5xl hidden md:flex">
+          <TemplateSlider />
         </div>
 
         {/* bottom: split wordmark + floating preview card */}
