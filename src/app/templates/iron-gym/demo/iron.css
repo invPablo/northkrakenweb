@@ -1,0 +1,28 @@
+.iron-scope {
+  --background: #0a0a0a;
+  --foreground: #f4f4f4;
+  --accent: #ccff00;
+  --accent-hover: #b3e600;
+  --card-bg: #111111;
+  --border: #222222;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-inter), sans-serif;
+  overflow-x: hidden;
+}
+
+.iron-scope h1,
+.iron-scope h2,
+.iron-scope h3,
+.iron-scope h4,
+.iron-scope h5,
+.iron-scope h6 {
+  font-family: var(--font-oswald), sans-serif;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.iron-scope ::selection {
+  background-color: var(--accent);
+  color: #000;
+}

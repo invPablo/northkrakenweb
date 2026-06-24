@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background-dark: #0a0a0d;
+  --color-surface: #14151a;
+  --color-foreground-light: #f4f4f5;
+  --color-muted-text: #8b8b96;
+  --color-accent: #39ff8c;
+  --color-accent-soft: rgba(57, 255, 140, 0.12);
+  --font-sans: var(--font-plus-jakarta), ui-sans-serif, system-ui;
+  --font-display: var(--font-anton), sans-serif;
+}
+
+:root {
+  --background: #0a0a0d;
+  --foreground: #f4f4f5;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  overflow-x: hidden;
+  font-family: var(--font-plus-jakarta), sans-serif;
+}
+
+.tech-text {
+  font-family: monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+}
+
+/* Numbered, dashed-line section divider, Puki-style */
+.section-divider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-top: 1px dashed rgba(255, 255, 255, 0.25);
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.25);
+}
+
+.glow-text {
+  color: var(--color-accent);
+}
+
+/* Soft blurred glow blobs used behind hero / CTA sections */
+.glow-blob {
+  position: absolute;
+  border-radius: 9999px;
+  filter: blur(90px);
+  pointer-events: none;
+  background: radial-gradient(circle, rgba(57, 255, 140, 0.35), transparent 70%);
+}
+
+.card-surface {
+  background-color: var(--color-surface);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.card-surface:hover {
+  border-color: rgba(57, 255, 140, 0.4);
+}
+
+/* Infinite logo/tech-stack marquee */
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 22s linear infinite;
+}
+
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* Slow continuous spin for the circular hero badge */
+.badge-spin {
+  animation: spin-slow 14s linear infinite;
+}
+
+@keyframes spin-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.starfield {
+  background-image:
+    radial-gradient(rgba(255, 255, 255, 0.9) 1px, transparent 1.5px),
+    radial-gradient(rgba(255, 255, 255, 0.5) 1px, transparent 1.5px);
+  background-size: 90px 90px, 130px 130px;
+  background-position: 0 0, 45px 65px;
+  animation: twinkle 5s ease-in-out infinite alternate;
+}
+
+@keyframes twinkle {
+  from { opacity: 0.5; }
+  to { opacity: 1; }
+}
+
+::selection {
+  background-color: var(--color-accent);
+  color: #0a0a0d;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a0d;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a2a31;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
