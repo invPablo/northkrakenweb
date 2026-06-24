@@ -68,10 +68,10 @@ function Column({
         {doubled.map((t, i) => (
           <div
             key={`${t.name}-${i}`}
-            className="testimonial-card mx-auto w-[88%] rounded-xl p-5 flex flex-col justify-between gap-4 mb-5 shrink-0"
+            className="testimonial-card w-full rounded-xl p-5 flex flex-col gap-4 mb-4 shrink-0"
           >
-            <p className="text-sm leading-snug text-zinc-700">{t.quote}</p>
-            <div>
+            <p className="text-sm leading-relaxed text-zinc-700">{t.quote}</p>
+            <div className="mt-auto">
               <p className="font-semibold text-sm text-zinc-900">{t.name}</p>
               <p className="text-xs text-zinc-500 mt-0.5">{t.role}</p>
             </div>
@@ -89,9 +89,9 @@ export default function TestimonialWall() {
   const col3 = TESTIMONIALS.slice(colSize * 2);
 
   return (
-    <div className="relative grid grid-cols-1 md:grid-cols-3 gap-5">
-      <div className="absolute inset-x-0 top-0 h-16 bg-gradient-to-b from-surface to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-surface to-transparent z-10 pointer-events-none" />
+    <div className="relative grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div className="absolute inset-x-0 top-0 h-20 bg-gradient-to-b from-background-dark to-transparent z-10 pointer-events-none" />
+      <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-background-dark to-transparent z-10 pointer-events-none" />
       <Column items={col1} direction="up" duration="32s" />
       <Column items={col2} direction="down" duration="38s" />
       <Column items={col3} direction="up" duration="26s" />

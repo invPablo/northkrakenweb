@@ -69,14 +69,14 @@ body {
 .marquee-col-up {
   display: flex;
   flex-direction: column;
-  width: max-content;
+  width: 100%;
   animation: marquee-scroll-up var(--marquee-duration, 28s) linear infinite;
 }
 
 .marquee-col-down {
   display: flex;
   flex-direction: column;
-  width: max-content;
+  width: 100%;
   animation: marquee-scroll-down var(--marquee-duration, 28s) linear infinite;
 }
 
