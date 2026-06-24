@@ -2,11 +2,14 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
+import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
+import { X, ArrowRight, ShoppingBag, ExternalLink } from "lucide-react";
 import { TEMPLATES } from "@/lib/templates";
 
 export default function TemplateOrbit() {
   const [currentIdx, setCurrentIdx] = useState(0);
+  const [selectedTemplate, setSelectedTemplate] = useState<typeof TEMPLATES[0] | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -105,31 +108,32 @@ export default function TemplateOrbit() {
         );
       })}
 
-      {/* Animated Cursor */}
-      <motion.div
-        className="absolute z-30 pointer-events-none"
+      {/* Animated Circle Indicator */}
+      <motion.button
+        className="absolute z-30 cursor-pointer"
         animate={{
-          x: currentPos.x - 8,
-          y: currentPos.y - 8,
+          x: currentPos.x - 16,
+          y: currentPos.y - 16,
         }}
         transition={{
           duration: 2.8,
           ease: "easeInOut",
         }}
+        onClick={() => setSelectedTemplate(TEMPLATES[currentIdx])}
+        whileHover={{ scale: 1.2 }}
+        whileTap={{ scale: 0.95 }}
       >
-        <svg
-          width="32"
-          height="32"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          className="text-accent drop-shadow-lg"
-          strokeWidth={2}
-        >
-          {/* Custom cursor pointer */}
-          <path d="M3 3l7.07 18.97.5.56.89-.28L20.22 3.5a.5.5 0 00-.62-.62L3.28 11.62l-.28.89.56.5L21 10" />
-        </svg>
-      </motion.div>
+        <div className="relative w-8 h-8">
+          {/* Pulsing outer ring */}
+          <motion.div
+            className="absolute inset-0 rounded-full border-2 border-accent/60"
+            animate={{ scale: [1, 1.3], opacity: [1, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+          />
+          {/* Solid circle */}
+          <div className="absolute inset-0 rounded-full bg-accent/30 border-2 border-accent shadow-lg shadow-accent/50" />
+        </div>
+      </motion.button>
 
       {/* Tooltip for current template */}
       <motion.div
@@ -142,6 +146,113 @@ export default function TemplateOrbit() {
         <span className="text-zinc-300">{TEMPLATES[currentIdx].title}</span>
         <span className="text-accent ml-2">{TEMPLATES[currentIdx].price}</span>
       </motion.div>
+
+      {/* Modal Preview */}
+      <AnimatePresence>
+        {selectedTemplate && (
+          <>
+            {/* Backdrop */}
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setSelectedTemplate(null)}
+              className="fixed inset-0 bg-black/80 backdrop-blur-sm z-[100]"
+            />
+
+            {/* Modal */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.9, y: 20 }}
+              transition={{ duration: 0.3 }}
+              className="fixed inset-0 z-[101] flex items-center justify-center p-6"
+            >
+              <div className="bg-background-dark border border-white/10 rounded-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto shadow-2xl">
+                {/* Close Button */}
+                <button
+                  onClick={() => setSelectedTemplate(null)}
+                  className="absolute top-4 right-4 z-10 w-10 h-10 rounded-full border border-white/20 hover:border-white/40 flex items-center justify-center transition-colors"
+                >
+                  <X className="w-5 h-5" />
+                </button>
+
+                {/* Hero Image */}
+                {selectedTemplate.images && (
+                  <div className="relative w-full aspect-video">
+                    <Image
+                      src={selectedTemplate.images[0]}
+                      alt={selectedTemplate.title}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                )}
+
+                {/* Content */}
+                <div className="p-8 lg:p-10">
+                  <span className="tech-text text-accent text-xs">{selectedTemplate.type}</span>
+                  <h2 className="font-display text-5xl uppercase mt-3 mb-4">{selectedTemplate.title}</h2>
+                  <p className="text-zinc-400 text-lg leading-relaxed mb-8">{selectedTemplate.description}</p>
+
+                  {/* Features */}
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                    <div>
+                      <span className="tech-text text-zinc-500 text-xs uppercase">Features</span>
+                      <ul className="mt-3 space-y-2">
+                        {selectedTemplate.features.map((f) => (
+                          <li key={f} className="flex items-start gap-2 text-sm text-zinc-300">
+                            <span className="text-accent mt-1">→</span>
+                            {f}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div>
+                      <span className="tech-text text-zinc-500 text-xs uppercase">Pages Included</span>
+                      <ul className="mt-3 space-y-2">
+                        {selectedTemplate.pages.map((p) => (
+                          <li key={p} className="flex items-start gap-2 text-sm text-zinc-300">
+                            <span className="text-accent mt-1">→</span>
+                            {p}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+
+                  {/* CTA Section */}
+                  <div className="flex flex-wrap items-center gap-4 pt-6 border-t border-white/10">
+                    <span className="font-display text-3xl glow-text">{selectedTemplate.price}</span>
+                    <a
+                      href={selectedTemplate.checkoutUrl}
+                      className="inline-flex items-center gap-2 bg-accent text-background-dark font-semibold px-6 py-3 rounded-full hover:brightness-110 transition"
+                    >
+                      <ShoppingBag className="w-4 h-4" /> Buy now
+                    </a>
+                    <Link
+                      href={`/templates/${selectedTemplate.id}`}
+                      className="inline-flex items-center gap-2 border border-white/20 hover:border-white/40 px-6 py-3 rounded-full text-zinc-300 transition-colors"
+                    >
+                      Full details <ArrowRight className="w-4 h-4" />
+                    </Link>
+                    {selectedTemplate.demoUrl && (
+                      <a
+                        href={selectedTemplate.demoUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
+                      >
+                        Live demo <ExternalLink className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
+        )}
+      </AnimatePresence>
     </div>
   );
 }
