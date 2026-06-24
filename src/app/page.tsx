@@ -386,8 +386,11 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="border-t border-white/10 px-6 lg:px-20 py-10 flex flex-col md:flex-row justify-between items-center gap-6">
         <span className="font-display uppercase text-sm opacity-70">NORTH KRAKEN</span>
-        <div className="flex gap-6 text-xs text-zinc-500">
+        <div className="flex flex-wrap items-center gap-6 text-xs text-zinc-500">
           <span>© {new Date().getFullYear()} North Kraken Studio</span>
+          <Link href="/legal/terms" className="hover:text-white transition-colors">Terms</Link>
+          <Link href="/legal/privacy" className="hover:text-white transition-colors">Privacy</Link>
+          <Link href="/legal/refunds" className="hover:text-white transition-colors">Refunds</Link>
           <a href="#" className="hover:text-white transition-colors">Instagram</a>
           <a href="#" className="hover:text-white transition-colors">GitHub</a>
         </div>
