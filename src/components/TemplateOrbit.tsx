@@ -18,7 +18,7 @@ export default function TemplateOrbit() {
     return () => clearInterval(interval);
   }, []);
 
-  const orbitRadius = 220; // pixels from center
+  const orbitRadius = 300; // pixels from center
   const angleSlice = (360 / TEMPLATES.length) * (Math.PI / 180);
 
   const getPosition = (index: number) => {
@@ -33,7 +33,7 @@ export default function TemplateOrbit() {
   const nextPos = getPosition(nextIdx);
 
   return (
-    <div className="relative w-96 h-96 flex items-center justify-center">
+    <div className="relative w-full max-w-2xl aspect-square flex items-center justify-center">
       {/* Orbit Circle (faint) */}
       <div className="absolute w-full h-full rounded-full border border-white/10" />
 
@@ -74,10 +74,10 @@ export default function TemplateOrbit() {
             transition={{ duration: 0.8, ease: "easeInOut" }}
           >
             <div
-              className={`w-16 h-16 rounded-lg border overflow-hidden transition-all cursor-pointer flex-shrink-0 ${
+              className={`w-28 h-28 rounded-lg border overflow-hidden transition-all cursor-pointer flex-shrink-0 ${
                 isActive
                   ? "border-accent ring-2 ring-accent/50 scale-110 shadow-lg shadow-accent/30"
-                  : "border-white/20 opacity-60 hover:opacity-100 hover:border-white/40"
+                  : "border-white/20 opacity-70 hover:opacity-100 hover:border-white/40"
               }`}
             >
               {tpl.images ? (
@@ -108,32 +108,6 @@ export default function TemplateOrbit() {
         );
       })}
 
-      {/* Animated Circle Indicator */}
-      <motion.button
-        className="absolute z-30 cursor-pointer"
-        animate={{
-          x: currentPos.x - 16,
-          y: currentPos.y - 16,
-        }}
-        transition={{
-          duration: 2.8,
-          ease: "easeInOut",
-        }}
-        onClick={() => setSelectedTemplate(TEMPLATES[currentIdx])}
-        whileHover={{ scale: 1.2 }}
-        whileTap={{ scale: 0.95 }}
-      >
-        <div className="relative w-8 h-8">
-          {/* Pulsing outer ring */}
-          <motion.div
-            className="absolute inset-0 rounded-full border-2 border-accent/60"
-            animate={{ scale: [1, 1.3], opacity: [1, 0] }}
-            transition={{ duration: 2, repeat: Infinity }}
-          />
-          {/* Solid circle */}
-          <div className="absolute inset-0 rounded-full bg-accent/30 border-2 border-accent shadow-lg shadow-accent/50" />
-        </div>
-      </motion.button>
 
       {/* Tooltip for current template */}
       <motion.div
