@@ -68,6 +68,15 @@ body {
   border-color: rgba(57, 255, 140, 0.4);
 }
 
+.testimonial-card {
+  background-color: var(--color-surface);
+  border: 1px solid transparent;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 8px 30px rgba(0, 0, 0, 0.35);
+  backdrop-filter: blur(6px);
+}
+
 /* Infinite logo/tech-stack marquee */
 .marquee-track {
   display: flex;
