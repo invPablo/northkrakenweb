@@ -80,6 +80,31 @@ body {
   to { transform: translateX(-50%); }
 }
 
+/* Vertical testimonial columns */
+.marquee-col-up {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  animation: marquee-scroll-up var(--marquee-duration, 28s) linear infinite;
+}
+
+.marquee-col-down {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  animation: marquee-scroll-down var(--marquee-duration, 28s) linear infinite;
+}
+
+@keyframes marquee-scroll-up {
+  from { transform: translateY(0); }
+  to { transform: translateY(-50%); }
+}
+
+@keyframes marquee-scroll-down {
+  from { transform: translateY(-50%); }
+  to { transform: translateY(0); }
+}
+
 /* Slow continuous spin for the circular hero badge */
 .badge-spin {
   animation: spin-slow 14s linear infinite;

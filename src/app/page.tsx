@@ -8,6 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ArrowRight, ChevronDown, ShoppingBag } from "lucide-react";
 import { TEMPLATES } from "@/lib/templates";
 import TemplateSlider from "@/components/TemplateSlider";
+import TestimonialWall from "@/components/TestimonialWall";
 
 const NAV_LINKS = [
   { href: "#shop", label: "Shop" },
@@ -16,23 +17,6 @@ const NAV_LINKS = [
   { href: "#contact", label: "Contact" },
 ];
 
-const TESTIMONIALS = [
-  {
-    quote: "We launched our agency site in a weekend. The template did 90% of the work for us.",
-    name: "Mara Lindqvist",
-    role: "Founder, Studio Halo",
-  },
-  {
-    quote: "Cleanest Next.js codebase I've bought. No bloat, no mystery dependencies.",
-    name: "Theo Brandt",
-    role: "Frontend Engineer",
-  },
-  {
-    quote: "Support actually replied within a day and fixed our deploy issue for free.",
-    name: "Inés Calvo",
-    role: "Indie Maker",
-  },
-];
 
 const FAQS = [
   {
@@ -316,27 +300,7 @@ export default function Home() {
         <SectionHeader num="03" label="Reviews" />
         <h2 className="mb-12 font-display text-4xl lg:text-5xl uppercase">What people are shipping</h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-          {TESTIMONIALS.map((t, idx) => (
-            <motion.div
-              key={t.name}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.3 }}
-              transition={{ duration: 0.5, delay: idx * 0.08 }}
-              className="card-surface rounded-2xl p-6 flex flex-col justify-between gap-6"
-            >
-              <p className="text-lg leading-snug">
-                <span className="glow-text text-2xl leading-none">&ldquo;</span>
-                {t.quote}
-              </p>
-              <div>
-                <p className="font-semibold text-sm">{t.name}</p>
-                <p className="text-xs text-zinc-500 mt-0.5">{t.role}</p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        <TestimonialWall />
       </section>
 
       {/* FAQ */}
