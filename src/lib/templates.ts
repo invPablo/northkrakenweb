@@ -8,6 +8,7 @@ export type Template = {
   features: string[];
   pages: string[];
   images?: string[];
+  video?: string;
   demoUrl?: string;
   docsUrl?: string;
 };
@@ -94,6 +95,7 @@ export const TEMPLATES: Template[] = [
       "/templates/sour/podcast-studio.png",
       "/templates/sour/collaborative-lounge.png",
     ],
+    video: "https://cdn.sceneai.art/Hero%20Section%20Video/1bc60917-cb77-4441-bc15-bb839a9dd6c2.mp4",
     demoUrl: "https://sour-landing.vercel.app",
   },
 ];

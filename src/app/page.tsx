@@ -239,7 +239,16 @@ export default function Home() {
               className="group flex flex-col rounded-2xl border border-black/10 bg-white overflow-hidden cursor-pointer hover:border-black/20 hover:shadow-lg transition-all"
             >
               <div className="relative aspect-[4/3] bg-surface overflow-hidden">
-                {tpl.images ? (
+                {tpl.video ? (
+                  <video
+                    src={tpl.video}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover group-hover:scale-[1.03] transition-transform duration-300"
+                  />
+                ) : tpl.images ? (
                   <Image
                     src={tpl.images[0]}
                     alt={tpl.title}
