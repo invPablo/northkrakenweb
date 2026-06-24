@@ -35,28 +35,8 @@ body {
   letter-spacing: 0.12em;
 }
 
-/* Numbered, dashed-line section divider, Puki-style */
-.section-divider {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.9rem 0;
-  border-top: 1px dashed rgba(255, 255, 255, 0.25);
-  border-bottom: 1px dashed rgba(255, 255, 255, 0.25);
-}
-
 .glow-text {
   color: var(--color-accent);
-}
-
-/* Soft blurred glow blobs used behind hero / CTA sections */
-.glow-blob {
-  position: absolute;
-  border-radius: 9999px;
-  filter: blur(90px);
-  pointer-events: none;
-  background: radial-gradient(circle, rgba(10, 143, 91, 0.18), transparent 70%);
 }
 
 .card-surface {
@@ -70,10 +50,7 @@ body {
 
 .testimonial-card {
   background-color: #ffffff;
-  border: 1px solid transparent;
-  box-shadow:
-    0 0 0 1px rgba(0, 0, 0, 0.05),
-    0 8px 24px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.08);
 }
 
 /* Infinite logo/tech-stack marquee */
@@ -111,16 +88,6 @@ body {
 @keyframes marquee-scroll-down {
   from { transform: translateY(-50%); }
   to { transform: translateY(0); }
-}
-
-/* Slow continuous spin for the circular hero badge */
-.badge-spin {
-  animation: spin-slow 14s linear infinite;
-}
-
-@keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
 }
 
 .starfield {

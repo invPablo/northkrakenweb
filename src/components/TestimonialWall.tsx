@@ -68,12 +68,9 @@ function Column({
         {doubled.map((t, i) => (
           <div
             key={`${t.name}-${i}`}
-            className="testimonial-card mx-auto w-[88%] rounded-2xl p-5 flex flex-col justify-between gap-4 mb-5 shrink-0"
+            className="testimonial-card mx-auto w-[88%] rounded-xl p-5 flex flex-col justify-between gap-4 mb-5 shrink-0"
           >
-            <p className="text-sm leading-snug text-zinc-700">
-              <span className="glow-text text-xl leading-none">&ldquo;</span>
-              {t.quote}
-            </p>
+            <p className="text-sm leading-snug text-zinc-700">{t.quote}</p>
             <div>
               <p className="font-semibold text-sm text-zinc-900">{t.name}</p>
               <p className="text-xs text-zinc-500 mt-0.5">{t.role}</p>
