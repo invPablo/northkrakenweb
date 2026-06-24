@@ -41,7 +41,7 @@ export default function TemplateSlider() {
           {/* Left: Template Image */}
           <div className="w-full md:w-1/2 flex items-center justify-center">
             {current.images ? (
-              <div className="relative w-full max-w-sm aspect-video rounded-xl overflow-hidden border border-white/10 shadow-2xl shadow-accent/20">
+              <div className="relative w-full max-w-xl aspect-video rounded-xl overflow-hidden border border-white/10 shadow-2xl shadow-accent/20">
                 <Image
                   src={current.images[0]}
                   alt={current.title}
@@ -50,31 +50,31 @@ export default function TemplateSlider() {
                 />
               </div>
             ) : (
-              <div className="w-full max-w-sm aspect-video rounded-xl bg-surface border border-white/10 flex items-center justify-center">
-                <span className="font-display text-2xl text-zinc-700">{current.title}</span>
+              <div className="w-full max-w-xl aspect-video rounded-xl bg-surface border border-white/10 flex items-center justify-center">
+                <span className="font-display text-3xl text-zinc-700">{current.title}</span>
               </div>
             )}
           </div>
 
           {/* Right: Template Info */}
-          <div className="w-full md:w-1/2 flex flex-col gap-6">
+          <div className="w-full md:w-1/2 flex flex-col gap-7">
             <div>
-              <span className="tech-text text-accent text-xs">{current.type}</span>
-              <h2 className="font-display text-4xl md:text-5xl uppercase mt-3 leading-tight">
+              <span className="tech-text text-accent text-sm">{current.type}</span>
+              <h2 className="font-display text-6xl md:text-7xl uppercase mt-4 leading-tight">
                 {current.title}
               </h2>
             </div>
 
-            <p className="text-zinc-400 text-lg leading-relaxed max-w-lg">
+            <p className="text-zinc-400 text-xl leading-relaxed max-w-xl">
               {current.description}
             </p>
 
             {/* Features */}
-            <div className="max-w-lg">
-              <p className="tech-text text-zinc-500 text-xs uppercase mb-3">Key Features</p>
-              <ul className="space-y-2">
+            <div className="max-w-xl">
+              <p className="tech-text text-zinc-500 text-sm uppercase mb-4">Key Features</p>
+              <ul className="space-y-3">
                 {current.features.slice(0, 3).map((f) => (
-                  <li key={f} className="flex items-center gap-2 text-sm text-zinc-300">
+                  <li key={f} className="flex items-center gap-3 text-base text-zinc-300">
                     <span className="text-accent">→</span>
                     {f}
                   </li>
@@ -83,19 +83,19 @@ export default function TemplateSlider() {
             </div>
 
             {/* CTA */}
-            <div className="flex flex-wrap items-center gap-4 pt-4">
-              <span className="font-display text-3xl glow-text">{current.price}</span>
+            <div className="flex flex-wrap items-center gap-5 pt-4">
+              <span className="font-display text-4xl glow-text">{current.price}</span>
               <a
                 href={current.checkoutUrl}
-                className="inline-flex items-center gap-2 bg-accent text-background-dark font-semibold px-6 py-3 rounded-full hover:brightness-110 transition"
+                className="inline-flex items-center gap-2 bg-accent text-background-dark font-semibold px-7 py-3.5 rounded-full hover:brightness-110 transition text-base"
               >
-                <ShoppingBag className="w-4 h-4" /> Buy
+                <ShoppingBag className="w-5 h-5" /> Buy
               </a>
               <Link
                 href={`/templates/${current.id}`}
-                className="inline-flex items-center gap-2 text-sm text-zinc-400 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 text-base text-zinc-400 hover:text-white transition-colors"
               >
-                Full details <ArrowRight className="w-4 h-4" />
+                Full details <ArrowRight className="w-5 h-5" />
               </Link>
             </div>
           </div>

@@ -176,7 +176,7 @@ export default function Home() {
         </div>
 
         {/* centered template slider */}
-        <div className="relative z-20 flex-1 w-full max-w-5xl mx-auto hidden md:flex items-center justify-center min-h-[420px]">
+        <div className="relative z-20 flex-1 w-full max-w-7xl mx-auto hidden md:flex items-center justify-center min-h-[560px]">
           <TemplateSlider />
         </div>
 
