@@ -201,13 +201,16 @@ export default function Home() {
       </section>
 
       {/* TECH MARQUEE */}
-      <div className="border-y border-black/10 py-5 overflow-hidden">
+      <div className="border-y border-black/10 bg-surface/50 py-5 overflow-hidden">
         <div className="marquee-track">
           {Array.from({ length: 2 }).map((_, i) => (
             <span key={i} className="flex items-center shrink-0">
               {["Next.js", "Tailwind CSS", "Framer Motion", "TypeScript", "Vercel"].map((tool) => (
-                <span key={tool} className="text-sm font-medium uppercase tracking-wide px-8 text-zinc-400">
-                  {tool}
+                <span key={tool} className="flex items-center shrink-0">
+                  <span className="text-sm font-semibold uppercase tracking-wide px-6 text-zinc-600">
+                    {tool}
+                  </span>
+                  <span className="w-1 h-1 rounded-full bg-zinc-300" />
                 </span>
               ))}
             </span>
