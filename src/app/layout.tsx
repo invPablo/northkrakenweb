@@ -18,13 +18,13 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "North Kraken Studio | Next.js Templates",
-  description: "Production-ready Next.js & Tailwind CSS templates. Buy, customize and deploy in minutes.",
-  keywords: ["templates", "next.js templates", "tailwind css", "web templates", "custom software"],
+  title: "North Kraken Studio | Software Development Studio",
+  description: "We design and build production-ready web software with Next.js — from idea to deployed product.",
+  keywords: ["software studio", "next.js development", "web development agency", "custom software"],
   metadataBase: new URL("https://northkraken.studio"),
   openGraph: {
-    title: "North Kraken Studio | Next.js Templates",
-    description: "Production-ready Next.js & Tailwind CSS templates. Buy, customize and deploy in minutes.",
+    title: "North Kraken Studio | Software Development Studio",
+    description: "We design and build production-ready web software with Next.js — from idea to deployed product.",
     type: "website",
     locale: "en_US",
   }
